@@ -19,12 +19,12 @@ users.forEach((user)=>{
     <img class="user-avatar" src=${user.avatar}>
     <div>
     <p class="user-name">${user.name}</p>
-    <button onclick="Edit-user-form(${user.id})">EDIT</button>
+    <button onclick="Edituser(${user.id})">EDIT</button>
     <button onclick="Deleteuser(${user.id})">DELETE</button>
     <div class="user-form edit-${user.id}">
-    <input value=${user.name} class="edit-${user.id}-user-name" placeholder="Enter username"/>
-    <input value=${user.avater}class="edit-${user.id}-user-pic" placeholder="enter url"/>
-    <button onclick="save()">save</button>
+    <input value="${user.name}" class="edit-${user.id}-user-name" placeholder="Enter username"/>
+    <input value="${user.avatar}" class="edit-${user.id}-user-pic" placeholder="enter url"/>
+    <button onclick="saveEdit(${user.id})">save</button>
     </div>
     </div>
    </div>
@@ -62,7 +62,23 @@ async function Edituser(userid){
     edituser.style.display=
     edituser.style.display==="block" ? "none" : "block";
 }
+    async function saveEdit(userid){
+    console.log("save...")
+    const username=document.querySelector(`.edit-${userid}-user-name`).value;
+    const img1=document.querySelector(`.edit-${userid}-user-pic`).value;
+
+    const data= await fetch("https://616ba6e516c3fa0017171788.mockapi.io/users/" + userid,
     
+    { 
+    method: "PUT",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({ name:username,avatar:img1}),
+    }
+    );
+
+getAllusers();
+
+}
 
 
     
