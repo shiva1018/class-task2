@@ -1,0 +1,31 @@
+
+body{
+    min-height: 100vh;
+    background-image: linear-gradient(to right, #37051f, #62053e, #8f0462, #bd068c, #eb12bc);
+}
+.user-list{
+  margin: 20px;
+    background-color:white;
+    padding:2rem;
+    display: flex;
+    gap: 2px;
+    border-radius: 1rem;
+    transition: all 0.2s;
+
+}
+.user-avatar{
+    border-radius: 50%;
+}
+.user-name{
+    font-size: 1.3rem;
+    font-family: 'Dancing Script', cursive;
+}
+.user-list:hover{
+    transform: scale(1.1);
+}
+.user-list:hover .user-name{
+    color: crimson;
+}
+.form-user{
+    margin: 2rem;
+}
